@@ -1,73 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Estate Surveyor Landing Page</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bn Abdulaziz Consulting - Real Property Development & Management Consultants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS to ensure Inter font is applied and for smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Hide scrollbar for a cleaner look, but allow scrolling */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Carousel specific styles */
+        .carousel-slide {
+            display: none; /* Hide all slides by default */
+            transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex; /* Use flex to center content */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem; /* Add some padding for smaller screens */
+        }
+        .carousel-slide.active {
+            display: flex; /* Show active slide */
+            opacity: 1;
+        }
+
+        /* Keyframe animations for text (optional, but nice for hero) */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-  <header class="hero">
-    <div class="container">
-      <h1>Welcome to Bn Abdulaziz Consulting</h1>
-      <p>Real Property Development & Management Consultant</p>
-      <a href="#contact" class="btn">Contact Us</a>
-    </div>
-  </header>
+    <header class="bg-white shadow-md py-4 px-6 md:px-10 sticky top-0 z-50 rounded-b-lg">
+        <nav class="container mx-auto flex justify-between items-center flex-wrap">
+            <a href="#" class="text-2xl font-bold text-blue-700 rounded-md p-2">Bn Abdulaziz Consulting</a>
 
-  <section class="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="service-cards">
-        <div class="card">
-          <h3>Property Valuation</h3>
-          <p>Accurate valuation for residential, commercial, and industrial properties.</p>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <div id="nav-links" class="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 w-full md:w-auto items-center">
+                <a href="#home" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Home</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Services</a>
+                <a href="#valuation" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Valuation</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">About Us</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 md:py-32 text-center overflow-hidden rounded-b-xl h-[60vh] md:h-[70vh] flex items-center justify-center">
+            <div id="carousel" class="absolute inset-0 w-full h-full">
+                <div class="carousel-slide active" style="background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=Modern+Architecture')">
+                    <div class="container mx-auto relative z-10 px-4 bg-black bg-opacity-40 p-6 rounded-lg">
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up">
+                            Bn Abdulaziz Consulting
+                        </h1>
+                        <p class="text-xl md:text-2xl font-light mb-8 animate-fade-in-up delay-200">
+                            Your Trusted Real Property Development & Management Consultants
+                        </p>
+                        <a href="#services" class="inline-block bg-white text-blue-700 hover:bg-blue-100 font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-400">
+                            Explore Our Services
+                        </a>
+                    </div>
+                </div>
+
+                <div class="carousel-slide" style="background-image: url('https://placehold.co/1920x1080/1A202C/FFFFFF?text=Cityscape+View')">
+                    <div class="container mx-auto relative z-10 px-4 bg-black bg-opacity-40 p-6 rounded-lg">
+                        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 animate-fade-in-up">
+                            Expertise in Property Valuation
+                        </h2>
+                        <p class="text-xl md:text-2xl font-light mb-8 animate-fade-in-up delay-200">
+                            Accurate and reliable valuations for all your property needs.
+                        </p>
+                        <a href="#services" class="inline-block bg-white text-blue-700 hover:bg-blue-100 font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-400">
+                            View Valuation Services
+                        </a>
+                    </div>
+                </div>
+
+                <div class="carousel-slide" style="background-image: url('https://placehold.co/1920x1080/2C5282/FFFFFF?text=Green+Development')">
+                    <div class="container mx-auto relative z-10 px-4 bg-black bg-opacity-40 p-6 rounded-lg">
+                        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 animate-fade-in-up">
+                            Innovative Property Development
+                        </h2>
+                        <p class="text-xl md:text-2xl font-light mb-8 animate-fade-in-up delay-200">
+                            Bringing your development visions to life with strategic planning.
+                        </p>
+                        <a href="#services" class="inline-block bg-white text-blue-700 hover:bg-blue-100 font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out animate-fade-in-up delay-400">
+                            Discover Development Solutions
+                        </a>
+                    </div>
+                </div>
+
+                <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full focus:outline-none hover:bg-opacity-75 transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full focus:outline-none hover:bg-opacity-75 transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                <div id="carousel-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
+                    </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-16 md:py-24 bg-white rounded-xl shadow-lg mx-4 md:mx-auto max-w-6xl mt-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-700 mb-12">Our Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-blue-200">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-3">Valuation for All Purposes</h3>
+                        <p class="text-gray-700">Comprehensive valuation services for various needs, including sales, acquisitions, taxation, and financial reporting.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-green-200">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">Property Development</h3>
+                        <p class="text-gray-700">Expert guidance and management through all stages of property development, from concept to completion.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-yellow-200">
+                        <h3 class="text-xl font-semibold text-yellow-700 mb-3">Feasibility & Viability Appraisal</h3>
+                        <p class="text-gray-700">In-depth analysis to assess the potential success and profitability of your property projects.</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-red-200">
+                        <h3 class="text-xl font-semibold text-red-700 mb-3">Building Plan Approval</h3>
+                        <p class="text-gray-700">Assistance with navigating regulatory processes to secure timely building plan approvals.</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-purple-200">
+                        <h3 class="text-xl font-semibold text-purple-700 mb-3">Rating and Taxation</h3>
+                        <p class="text-gray-700">Specialized advice on property rating and taxation to optimize your financial obligations.</p>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-indigo-200">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-3">Property Sale and Leases</h3>
+                        <p class="text-gray-700">Facilitating seamless property sales and lease agreements for both residential and commercial properties.</p>
+                    </div>
+                    <div class="bg-pink-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-pink-200">
+                        <h3 class="text-xl font-semibold text-pink-700 mb-3">Property and Facility Management</h3>
+                        <p class="text-gray-700">Professional management of properties and facilities to ensure optimal performance and value.</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-teal-200">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-3">Property Inventory and Audit</h3>
+                        <p class="text-gray-700">Detailed inventory and audit services to maintain accurate records of your property assets.</p>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-orange-200">
+                        <h3 class="text-xl font-semibold text-orange-700 mb-3">Advice on Property Rights & Transfer</h3>
+                        <p class="text-gray-700">Expert legal and practical advice on property rights and smooth transfer processes.</p>
+                    </div>
+                    <div class="bg-cyan-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-cyan-200">
+                        <h3 class="text-xl font-semibold text-cyan-700 mb-3">Procurement of C of O</h3>
+                        <p class="text-gray-700">Assistance in the efficient procurement of Certificates of Occupancy (C of O).</p>
+                    </div>
+                    <div class="bg-lime-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-lime-200">
+                        <h3 class="text-xl font-semibold text-lime-700 mb-3">Investment Analysts</h3>
+                        <p class="text-gray-700">Strategic investment analysis to help you make informed decisions in the real estate market.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="valuation" class="py-16 md:py-24 bg-gray-100 rounded-xl shadow-lg mx-4 md:mx-auto max-w-6xl mt-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-700 mb-12">Specialized Valuation Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-blue-200">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-3">Valuation for Compulsory Acquisition</h3>
+                        <p class="text-gray-700">Determining fair compensation for interests in land and buildings acquired compulsorily.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-green-200">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">Valuation for Tenant Rating</h3>
+                        <p class="text-gray-700">Assessing property values for tenant rating and rental purposes.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-yellow-200">
+                        <h3 class="text-xl font-semibold text-yellow-700 mb-3">Valuation for Sales</h3>
+                        <p class="text-gray-700">Accurate market valuations to facilitate property sales.</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-red-200">
+                        <h3 class="text-xl font-semibold text-red-700 mb-3">Valuation for Purchase</h3>
+                        <p class="text-gray-700">Providing expert valuations to guide property purchase decisions.</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-purple-200">
+                        <h3 class="text-xl font-semibold text-purple-700 mb-3">Valuation for Investment</h3>
+                        <p class="text-gray-700">Analyzing property values for strategic investment planning.</p>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-indigo-200">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-3">Valuation for Establishing Ownership</h3>
+                        <p class="text-gray-700">Valuations required for legal and ownership documentation.</p>
+                    </div>
+                    <div class="bg-pink-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-pink-200">
+                        <h3 class="text-xl font-semibold text-pink-700 mb-3">Valuation for Settling Disputes</h3>
+                        <p class="text-gray-700">Impartial valuations to aid in property dispute resolution.</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-teal-200">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-3">Valuation for Capital Financing</h3>
+                        <p class="text-gray-700">Assessing property values for loan collateral and capital raising.</p>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-orange-200">
+                        <h3 class="text-xl font-semibold text-orange-700 mb-3">Valuation for Strategic Planning</h3>
+                        <p class="text-gray-700">Providing valuation insights for long-term property strategies.</p>
+                    </div>
+                    <div class="bg-cyan-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-cyan-200">
+                        <h3 class="text-xl font-semibold text-cyan-700 mb-3">Valuation for Insurance</h3>
+                        <p class="text-gray-700">Determining property values for insurance coverage purposes.</p>
+                    </div>
+                    <div class="bg-lime-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-lime-200">
+                        <h3 class="text-xl font-semibold text-lime-700 mb-3">Valuation for Rating and Taxation</h3>
+                        <p class="text-gray-700">Expert valuations for property tax assessments and rates.</p>
+                    </div>
+                    <div class="bg-fuchsia-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-fuchsia-200">
+                        <h3 class="text-xl font-semibold text-fuchsia-700 mb-3">Valuation for Litigation</h3>
+                        <p class="text-gray-700">Providing professional valuations for legal proceedings and court cases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 bg-gray-100 rounded-xl shadow-lg mx-4 md:mx-auto max-w-6xl mt-8">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-8">About Bn Abdulaziz Consulting</h2>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
+                    Bn Abdulaziz Consulting is a leading firm of Real Property Development and Management Consultants.
+                    With a deep understanding of the real estate market, we provide unparalleled expertise and
+                    innovative solutions to individuals, corporations, and government agencies. Our commitment
+                    to excellence ensures that our clients achieve their property goals with confidence and success.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                    We pride ourselves on our integrity, professionalism, and client-centric approach,
+                    delivering tailored services that meet the unique needs of each project.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-white rounded-xl shadow-lg mx-4 md:mx-auto max-w-6xl mt-8 mb-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-700 mb-12">Contact Us</h2>
+                <div class="max-w-xl mx-auto">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out" placeholder="your.email@example.com" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 text-sm font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-500 transition duration-200 ease-in-out" placeholder="Subject of your inquiry" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-700 text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="form-message" class="mt-4 p-3 text-center text-sm rounded-md hidden"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12 md:py-16 px-6 md:px-10 rounded-t-lg">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-xl font-bold text-blue-400 mb-4">Bn Abdulaziz Consulting</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    Your trusted Real Property Development & Management Consultants, dedicated to delivering
+                    excellence and innovative solutions in the real estate sector.
+                </p>
+                <p class="mt-4 text-sm text-gray-400">&copy; <span id="current-year"></span> Bn Abdulaziz Consulting. All rights reserved.</p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-blue-400 mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">Home</a></li>
+                    <li><a href="#services" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">Our Services</a></li>
+                    <li><a href="#valuation" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">Valuation</a></li>
+                    <li><a href="#about" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">About Us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-blue-400 mb-4">Contact Us</h3>
+                <address class="not-italic text-gray-300 space-y-2">
+                    <p>123 Property Lane, Estate City, Nigeria</p>
+                    <p>Email: <a href="mailto:info@bnconsulting.com" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">info@bnconsulting.com</a></p>
+                    <p>Phone: <a href="tel:+2348012345678" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out">+234 801 234 5678</a></p>
+                </address>
+                <div class="flex justify-center md:justify-start space-x-4 mt-6">
+                    <a href="#" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out" aria-label="Facebook">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 8h-2v7h-3v-7h-2v-3h7v3z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out" aria-label="Twitter">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 7.5c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5zm-4.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5zm-4.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-blue-300 transition duration-300 ease-in-out" aria-label="LinkedIn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-2 16h-3V9h3v9zm-1.5-9.5c-.828 0-1.5-.672-1.5-1.5S9.672 6.5 10.5 6.5 12 7.172 12 8s-.672 1.5-1.5 1.5zm7.5 9.5h-3V13.5c0-.828-.672-1.5-1.5-1.5s-1.5.672-1.5 1.5V18h-3V9h3v1.5c.5-.8 1.2-1.5 2.5-1.5 1.7 0 3 1.3 3 3v5z"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <h3>Land Surveying</h3>
-          <p>Expert land surveying and boundary demarcation using modern tools.</p>
-        </div>
-        <div class="card">
-          <h3>Estate Management</h3>
-          <p>Professional estate management services to maximize property value.</p>
-        </div>
-      </div>
-      <div class="container">
-        <div class="service-cards">
-          <div class="card">
-            <h3>Management</h3>
-            <p>Property and facility management, inventory and audit.</p>
-          </div>
-          <div class="card">
-            <h3>Property Advisory</h3>
-            <p>Property sales, leases, rating and taxation.</p>
-          </div>
-          <div class="card">
-            <h3>Procurement</h3>
-            <p>Procurement of C of O and investment analysis.</p>
-          </div>
-        </div>
-    </div>
-  </section>
+    </footer>
 
-  <section class="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>We are licensed estate surveyors with over 10 years of experience offering reliable and professional real estate services across Nigeria. Our mission is to provide top-tier surveying and valuation solutions that exceed client expectations.</p>
-    </div>
-  </section>
+    <script>
+        // JavaScript for mobile menu toggle and smooth scrolling
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const navLinks = document.getElementById('nav-links');
+            const navLinksArray = Array.from(navLinks.querySelectorAll('.nav-link'));
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            const currentYearSpan = document.getElementById('current-year');
 
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Email: seebnabdulazizconsulting@gmail.com | Phone: +234-7063848754</p>
-    </div>
-  </section>
+            // Set current year in footer
+            currentYearSpan.textContent = new Date().getFullYear();
 
-  <footer class="footer">
-    <p>&copy; 2025 Bn Abdulaziz Consulting. All rights reserved.</p>
-  </footer>
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+            });
 
+            // Smooth scroll for navigation links and close mobile menu
+            navLinksArray.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default anchor click behavior
+                    const targetId = link.getAttribute('href').substring(1); // Get target section ID
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        // Scroll to the target section smoothly
+                        window.scrollTo({
+                            top: targetSection.offsetTop - document.querySelector('header').offsetHeight, // Adjust for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Hide mobile menu after clicking a link
+                    if (!navLinks.classList.contains('hidden') && window.innerWidth < 768) {
+                        navLinks.classList.add('hidden');
+                        navLinks.classList.remove('flex');
+                    }
+                });
+            });
+
+            // Basic form submission handling (client-side only)
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent actual form submission
+
+                // Simulate form submission success
+                formMessage.textContent = 'Thank you for your message! We will get back to you shortly.';
+                formMessage.classList.remove('hidden');
+                formMessage.classList.remove('bg-red-100', 'text-red-700');
+                formMessage.classList.add('bg-green-100', 'text-green-700');
+                contactForm.reset(); // Clear the form
+
+                // You would typically send this data to a server here using fetch()
+                // Example:
+                /*
+                const formData = new FormData(contactForm);
+                fetch('/submit-form-endpoint', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    formMessage.textContent = 'Thank you for your message! We will get back to you shortly.';
+                    formMessage.classList.remove('hidden');
+                    formMessage.classList.remove('bg-red-100', 'text-red-700');
+                    formMessage.classList.add('bg-green-100', 'text-green-700');
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    formMessage.textContent = 'There was an error sending your message. Please try again.';
+                    formMessage.classList.remove('hidden');
+                    formMessage.classList.remove('bg-green-100', 'text-green-700');
+                    formMessage.classList.add('bg-red-100', 'text-red-700');
+                });
+                */
+            });
+
+            // Carousel functionality
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevButton = document.getElementById('prev-slide');
+            const nextButton = document.getElementById('next-slide');
+            const dotsContainer = document.getElementById('carousel-dots');
+            let currentSlide = 0;
+            let autoPlayInterval;
+
+            // Function to show a specific slide
+            function showSlide(index) {
+                // Hide all slides and remove active class
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    slide.style.display = 'none'; // Ensure display is none when not active
+                });
+
+                // Show the selected slide and add active class
+                slides[index].style.display = 'flex'; // Set display to flex before adding active class
+                setTimeout(() => { // Small delay to allow display change to register before opacity transition
+                    slides[index].classList.add('active');
+                }, 10); // A very small delay, can be 0 or 10ms
+
+                // Update dots
+                updateDots(index);
+
+                // Restart auto-play timer
+                resetAutoPlay();
+            }
+
+            // Function to go to the next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Function to go to the previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Function to create and update carousel dots
+            function createDots() {
+                dotsContainer.innerHTML = ''; // Clear existing dots
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('w-3', 'h-3', 'bg-gray-300', 'rounded-full', 'focus:outline-none', 'hover:bg-blue-300', 'transition', 'duration-300', 'ease-in-out');
+                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                    dot.addEventListener('click', () => {
+                        currentSlide = index;
+                        showSlide(currentSlide);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            // Function to update active dot
+            function updateDots(activeIndex) {
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, index) => {
+                    if (index === activeIndex) {
+                        dot.classList.remove('bg-gray-300', 'hover:bg-blue-300');
+                        dot.classList.add('bg-blue-500');
+                    } else {
+                        dot.classList.remove('bg-blue-500');
+                        dot.classList.add('bg-gray-300', 'hover:bg-blue-300');
+                    }
+                });
+            }
+
+            // Auto-play functionality
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+
+            function resetAutoPlay() {
+                stopAutoPlay();
+                startAutoPlay();
+            }
+
+            // Initialize carousel
+            createDots();
+            showSlide(currentSlide); // Show the first slide initially
+            startAutoPlay(); // Start auto-play
+
+            // Add event listeners for carousel buttons
+            prevButton.addEventListener('click', prevSlide);
+            nextButton.addEventListener('click', nextSlide);
+        });
+    </script>
 </body>
 </html>
