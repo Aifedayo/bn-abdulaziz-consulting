@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Properties - Bn Abdulaziz Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f9fafb; /* bg-gray-50 */
+            color: #374151; /* text-gray-800 */
+        }
+        /* Hide scrollbar for a cleaner look, but allow scrolling */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md py-4 px-6 md:px-10 sticky top-0 z-50 rounded-b-lg">
+        <nav class="container mx-auto flex justify-between items-center flex-wrap">
+            <a href="index.html" class="text-2xl font-bold text-blue-700 rounded-md p-2">Bn Abdulaziz Consulting</a>
+
+            <!-- <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button> -->
+
+            <div id="nav-links" class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 w-full md:w-auto items-center">
+                <a href="index.html#home" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Home</a>
+                <a href="index.html#services" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Services</a>
+                <a href="index.html#valuation" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Valuation</a>
+                <a href="properties.html" class="nav-link text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Properties</a>
+                <a href="index.html#about" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">About Us</a>
+                <a href="index.html#contact" class="nav-link text-gray-700 hover:text-blue-700 font-medium py-2 px-3 rounded-md transition duration-300 ease-in-out">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-16 md:py-24">
+        <section id="properties-list" class="bg-white rounded-xl shadow-lg mx-4 md:mx-auto max-w-6xl">
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-center text-blue-700 mb-12">Available Properties</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-200">
+                        <img src="https://placehold.co/400x250/E0E7FF/3B82F6?text=Luxury+Villa" alt="Luxury Villa" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">Luxury Villa in Lekki</h3>
+                            <p class="text-gray-700 text-sm mb-4">Spacious 5-bedroom villa with modern amenities and a private garden, located in a prime residential area.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">₦150,000,000</span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-200">
+                        <img src="https://placehold.co/400x250/D1FAE5/059669?text=Commercial+Space" alt="Commercial Space" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">Commercial Office Space, Victoria Island</h3>
+                            <p class="text-gray-700 text-sm mb-4">Modern office space suitable for startups or established businesses, with excellent transport links.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">₦50,000,000</span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-200">
+                        <img src="https://placehold.co/400x250/FFE4E6/EF4444?text=Residential+Apartment" alt="Residential Apartment" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">2-Bedroom Apartment, Ikoyi</h3>
+                            <p class="text-gray-700 text-sm mb-4">Cozy apartment in a serene neighborhood, perfect for small families or young professionals.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">₦75,000,000</span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-200">
+                        <img src="https://placehold.co/400x250/DBEAFE/1D4ED8?text=Land+Plot" alt="Land Plot" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-blue-700 mb-2">Prime Land Plot, Epe</h3>
+                            <p class="text-gray-700 text-sm mb-4">Undeveloped land ideal for residential or commercial development, high growth potential.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">₦25,000,000</span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-10 text-center rounded-t-lg mt-8">
+        <div class="container mx-auto">
+            <p>&copy; <span id="current-year-prop-page"></span> Bn Abdulaziz Consulting. All rights reserved.</p>
+            <p class="mt-2 text-sm">Real Property Development & Management Consultants</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYearSpan = document.getElementById('current-year-prop-page');
+            currentYearSpan.textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
